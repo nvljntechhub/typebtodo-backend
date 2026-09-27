@@ -28,10 +28,9 @@ cp .env.example .env.development
 ```
 
 Fill in `JWT_ACCESS_SECRET` and `JWT_REFRESH_SECRET` (for example
-`openssl rand -hex 32`). Compose loads this same file into the Postgres
-container, so `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB`
-do not need to be copied into `docker-compose.yml`. The API still
-connects to host port `5433`.
+`openssl rand -hex 32`). Set `POSTGRES_PASSWORD` to the same value as
+`docker-compose.yml` (`change-me` in this repo) so the API can reach
+the container.
 
 3. Start Postgres and Redis:
 
@@ -81,7 +80,7 @@ Default compose values (must match `.env.development`):
 | `POSTGRES_HOST` | `localhost` |
 | `POSTGRES_PORT` | `5433` |
 | `POSTGRES_USER` | `user` |
-| `POSTGRES_PASSWORD` | value in `.env.development` (Compose `env_file`) |
+| `POSTGRES_PASSWORD` | `change-me` (from compose; change both places together) |
 | `POSTGRES_DB` | `todobackend-db` |
 
 Data lives in the `postgres_data` Docker volume. `docker compose down`
