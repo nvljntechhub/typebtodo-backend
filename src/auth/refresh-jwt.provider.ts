@@ -3,7 +3,6 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import type { DurationString } from '../utils/functions.utils.js';
 
-/** Signs refresh tokens with their own secret and lifetime, separate from access tokens. */
 export const REFRESH_JWT_SERVICE = 'REFRESH_JWT_SERVICE';
 
 export const refreshJwtProvider: Provider = {

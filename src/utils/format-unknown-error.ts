@@ -4,10 +4,6 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 
-/**
- * Serializes an unknown thrown value for terminal logs, including
- * TypeORM/Postgres driver fields when present.
- */
 export function formatUnknownError(
   error: unknown,
   seen = new Set<unknown>(),
